@@ -54,6 +54,40 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
   firebase.auth().signOut().then(() => window.location="login.html");
 });
 </script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyB46vgL9d6dOkPIg-HzfHN_lB1IX3RSvv8",
+  authDomain: "the-money-mind-shift-60f9a.firebaseapp.com",
+  projectId: "the-money-mind-shift-60f9a",
+  storageBucket: "the-money-mind-shift-60f9a.firebasestorage.app",
+  messagingSenderId: "756290997216",
+  appId: "1:756290997216:web:a66b86d07539c83273f985",
+  measurementId: "G-ZXWTGJ9WFW"
+};
+
+firebase.initializeApp(firebaseConfig);
+</script>
+
+<script>
+firebase.auth().onAuthStateChanged(function(user) {
+  if (!user) {
+    window.location.href = "login.html";
+  }
+});
+</script>
+
+<script src="js/dashboard.js"></script>
+
+<script>
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  firebase.auth().signOut().then(() => {
+    window.location = "login.html";
+  });
+});
+</script>
 </body>
 </html>
